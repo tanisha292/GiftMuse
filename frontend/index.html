@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GiftMuse</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <header class="header">
+
+    <h1>GiftMuse 🎁</h1>
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <a href="find-gift.html">Find a Gift</a>
+
+        <a href="favorites.html">Favorites ♡</a>
+
+        <a href="Login.html">Login</a>
+
+        <button class="cart-btn" onclick="openCart()">
+            Add To Cart(<span id="cartCount">0</span>)
+        </button>
+        <button class="checkout-btn" onclick="checkout()">
+           Checkout
+        </button>
+
+    </nav>
+
+</header>
+
+    <section class="hero">
+
+        <h2>Find a Gift They'll Love ❤️</h2>
+
+        <p>
+            Discover unique and beautiful gifts
+            for every special moment.
+        </p>
+
+
+    </section>
+
+
+    <section class="gifts-section">
+
+        <h2>Popular Gifts</h2>
+
+        <p class="gift-count">13 gifts</p>
+
+
+        <div class="gift-grid">
+
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/moonlight-jewelry.jpeg"
+                         alt="Moonlight Jewelry">
+
+                </div>
+
+                <span>JEWELRY</span>
+
+                <h3>Moonlight Jewelry Box</h3>
+
+                <p>
+                    A beautiful and elegant jewelry gift
+                    perfect for someone special.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.8 (24 reviews)
+                </div>
+
+                <h4>TK1,800</h4>
+
+                <button class="view-button" onclick="viewGift('Moonlight Jewelry Box', 1800)">
+                    View Gift
+                </button>
+
+                <button onclick="addToCart('Moonlight Jewelry Box',1800)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/moonnightlamp.jpeg"
+                         alt="Moon Night Lamp">
+
+                </div>
+
+                <span>PERSONALIZED</span>
+
+                <h3>Moon Night Lamp</h3>
+
+                <p>
+                    A beautiful personalized lamp
+                    to preserve special memories.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.9 (31 reviews)
+                </div>
+
+                <h4>TK1,500</h4>
+
+                <button class="view-button" onclick="viewGift('Moon Night Lamp', 1500)">
+                    View Gift
+                </button>
+
+                <button onclick="addToCart('Moon Night Lamp',1500)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/smart-tech-box.jpeg"
+                         alt="Smart Tech">
+
+                </div>
+
+                <span>TECHNOLOGY</span>
+
+                <h3>Smart Tech Essentials Box</h3>
+
+                <p>
+                    A stylish collection of useful
+                    technology accessories.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.7 (18 reviews)
+                </div>
+
+                <h4>TK2,800</h4>
+
+                <button class="view-button" onclick="viewGift('Smart Tech Essentials Box', 2800)">
+                   View Gift
+                </button>
+
+                <button onclick="addToCart('Smart Tech Essentials Box',2800)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/blossom-glow-box.jpeg"
+                         alt="Blossom Glow">
+
+                </div>
+
+                <span>BEAUTY</span>
+
+                <h3>Blossom Glow Gift Box</h3>
+
+                <p>
+                    A lovely beauty gift box
+                    with a soft floral theme.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.8 (27 reviews)
+                </div>
+
+                <h4>TK1,650</h4>
+
+                <button class="view-button" onclick="viewGift('Blossom Glow Gift Box', 1650)">
+                   View Gift
+                </button>
+
+                <button onclick="addToCart('Blossom Glow Gift Box',1650)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/our-little-story-box.jpeg"
+                         alt="Our Little Story">
+
+                </div>
+
+                <span>Friend</span>
+
+                <h3> Little Story Book</h3>
+
+                <p>
+                    A book
+                    designed for special person.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.9 (42 reviews)
+                </div>
+
+                <h4>TK2,200</h4>
+
+                <button class="view-button" onclick="viewGift('Little Story Book', 2200)">
+                     View Gift
+                </button>
+
+                <button onclick="addToCart('Our Little Story Box',2200)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/polaroid-memory-box.jpeg"
+                         alt="Polaroid Memory">
+
+                </div>
+
+                <span>PERSONALIZED</span>
+
+                <h3>Polaroid Memory Box</h3>
+
+                <p>
+                    A creative memory box
+                    for storing favorite photographs.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.6 (16 reviews)
+                </div>
+
+                <h4>TK1,200</h4>
+
+               <button class="view-button" onclick="viewGift('Polaroid Memory Box',1200)">
+                    View Gift
+               </button>
+
+                <button onclick="addToCart('Polaroid Memory Box',1200)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/next-chapter-box.jpeg"
+                         alt="Next Chapter">
+
+                </div>
+
+                <span>GRADUATION</span>
+
+                <h3>Next Chapter Gift Box</h3>
+
+                <p>
+                    A thoughtful graduation gift
+                    for starting a new chapter.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.9 (35 reviews)
+                </div>
+
+                <h4>TK1,800</h4>
+
+             <button class="view-button" onclick="viewGift('Next Chapter Gift Box',1800)">
+                  View Gift
+             </button>
+
+                <button onclick="addToCart('Next Chapter Gift Box',1800)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/lavender-candle-set.jpeg"
+                         alt="Lavender Candle">
+
+                </div>
+
+                <span>HOME & DECOR</span>
+
+                <h3>Lavender Luxe Candle Set</h3>
+
+                <p>
+                    A relaxing lavender scented
+                    candle set for cozy spaces.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.7 (21 reviews)
+                </div>
+
+                <h4>TK950</h4>
+
+                <button class="view-button" onclick="viewGift('Lavender Luxe Candle Set', 950)">
+                   View Gift
+                </button>
+
+                <button onclick="addToCart('Lavender Luxe Candle Set',950)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/urban-gentleman-box.jpeg"
+                         alt="Urban Gentleman">
+
+                </div>
+
+                <span>FOR HIM</span>
+
+                <h3>Urban Gentleman Gift Box</h3>
+
+                <p>
+                    A premium gift collection
+                    designed for modern gentlemen.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.8 (19 reviews)
+                </div>
+
+                <h4>TK2,400</h4>
+
+                <button class="view-button" onclick="viewGift('Urban Gentleman Gift Box', 2400)">
+                  View Gift
+               </button>
+
+                <button onclick="addToCart('Urban Gentleman Gift Box',2400)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/cloud-glow-lamp.jpeg"
+                         alt="Cloud Glow">
+
+                </div>
+
+                <span>HOME & DECOR</span>
+
+                <h3>Cloud Glow Table Lamp</h3>
+
+                <p>
+                    A soft glowing table lamp
+                    for a cozy room atmosphere.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.6 (14 reviews)
+                </div>
+
+                <h4>TK1,750</h4>
+               <button class="view-button" onclick="viewGift('Cloud Glow Table Lamp', 1750)">
+                  View Gift
+               </button>
+
+                <button onclick="addToCart('Cloud Glow Table Lamp',1750)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/aura-charm-bracelet.jpeg"
+                         alt="Aura Charm">
+
+                </div>
+
+                <span>FASHION</span>
+
+                <h3>Aura Charm Bracelet</h3>
+
+                <p>
+                    A simple and elegant charm bracelet
+                    for everyday style.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.8 (29 reviews)
+                </div>
+
+                <h4>TK1,100</h4>
+
+                <button class="view-button" onclick="viewGift('Aura Charm Bracelet',1100)">
+                   View Gift
+                </button>
+
+                <button onclick="addToCart('Aura Charm Bracelet',1100)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/cozy-self-care-basket.jpeg"
+                         alt="Cozy Self Care">
+
+                </div>
+
+                <span>BEAUTY</span>
+
+                <h3>Cozy Self-Care Basket</h3>
+
+                <p>
+                    A relaxing self-care gift basket
+                    for a cozy day.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.7 (22 reviews)
+                </div>
+
+                <h4>TK1,450</h4>
+
+                <button class="view-button" onclick="viewGift('Cozy Self-Care Basket', 1450)">
+                View Gift
+                </button>
+
+                <button onclick="addToCart('Cozy Self-Care Basket',1450)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div class="gift-card">
+
+                <div class="image-box">
+
+                    <img src="../images/classic-wallet.jpeg"
+                         alt="Classic Leather Wallet">
+
+                </div>
+
+                <span>FASHION</span>
+
+                <h3>Classic Leather Wallet</h3>
+
+                <p>
+                    A classic and elegant leather wallet
+                    for everyday use.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ 4.6 (17 reviews)
+                </div>
+
+                <h4>TK1,200</h4>
+
+               <button class="view-button" onclick="viewGift('Classic Leather Wallet', 1200)">
+                 View Gift
+               </button>
+
+                <button onclick="addToCart('Classic Leather Wallet',1200)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <div id="cartBox" class="cart-box">
+
+        <div class="cart-content">
+
+            <button class="close-cart"
+                    onclick="closeCart()">
+                ✕
+            </button>
+
+            <h2>Your Cart </h2>
+
+            <div id="cartItems"></div>
+
+            <hr>
+
+            <h3>
+                Total: ৳<span id="cartTotal">0</span>
+            </h3>
+
+            <button class="checkout-btn"
+                    onclick="checkout()">
+                Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let cart = [];
+
+        function addToCart(name, price) {
+
+            cart.push({
+
+                name: name,
+
+                price: price
+
+            });
+
+
+            updateCart();
+
+
+            alert(
+                name +
+                " added to cart! 🎁"
+            );
+
+        }
+
+        function updateCart() {
+
+            document.getElementById(
+                "cartCount"
+            ).innerText = cart.length;
+
+
+            let cartItems =
+                document.getElementById(
+                    "cartItems"
+                );
+
+
+            cartItems.innerHTML = "";
+
+
+            let total = 0;
+
+
+            cart.forEach(
+                function(item, index) {
+
+                    total += item.price;
+
+
+                    cartItems.innerHTML += `
+
+                        <div class="cart-item">
+
+                            <div>
+
+                                <strong>
+                                    ${item.name}
+                                </strong>
+
+                                <br>
+
+                                ৳${item.price}
+
+                            </div>
+
+
+                            <button
+                                onclick="removeItem(${index})"
+                                class="remove-btn"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            document.getElementById(
+                "cartTotal"
+            ).innerText = total;
+
+        }
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        }
+
+        function openCart() {
+
+            document.getElementById(
+                "cartBox"
+            ).style.display = "block";
+
+        }
+
+        function closeCart() {
+
+            document.getElementById(
+                "cartBox"
+            ).style.display = "none";
+
+
+        }
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty!"
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Checking out!! "
+            );
+
+        }
+function viewGift(name, price) {
+
+    let product = "";
+
+    if (name === "Moonlight Jewelry Box") {
+        product =
+            "🎁 Moonlight Jewelry Box\n\n" +
+            "A beautiful and elegant jewelry gift perfect for someone special.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.8 (24 reviews)";
+    }
+
+    else if (name === "Moon Night Lamp") {
+        product =
+            "🌙 Moon Night Lamp\n\n" +
+            "A beautiful personalized lamp to preserve special memories.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.9 (31 reviews)";
+    }
+
+    else if (name === "Smart Tech Essentials Box") {
+        product =
+            "💻 Smart Tech Essentials Box\n\n" +
+            "A stylish collection of useful technology accessories.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.7 (18 reviews)";
+    }
+
+    else if (name === "Blossom Glow Gift Box") {
+        product =
+            "🌸 Blossom Glow Gift Box\n\n" +
+            "A lovely beauty gift box with a soft floral theme.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.8 (27 reviews)";
+    }
+
+    else if (name === "Little Story Book") {
+        product =
+            "📖 Little Story Book\n\n" +
+            "A book designed for special person.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.9 (42 reviews)";
+    }
+
+    else if (name === "Polaroid Memory Box") {
+        product =
+            "📸 Polaroid Memory Box\n\n" +
+            "A creative memory box for storing favorite photographs.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.6 (16 reviews)";
+    }
+
+    else if (name === "Next Chapter Gift Box") {
+        product =
+            "🎓 Next Chapter Gift Box\n\n" +
+            "A thoughtful graduation gift for starting a new chapter.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.9 (35 reviews)";
+    }
+
+    else if (name === "Lavender Luxe Candle Set") {
+        product =
+            "🕯️ Lavender Luxe Candle Set\n\n" +
+            "A relaxing lavender scented candle set for cozy spaces.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.7 (21 reviews)";
+    }
+
+    else if (name === "Urban Gentleman Gift Box") {
+        product =
+            "🎁 Urban Gentleman Gift Box\n\n" +
+            "A premium gift collection designed for modern gentlemen.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.8 (19 reviews)";
+    }
+
+    else if (name === "Cloud Glow Table Lamp") {
+        product =
+            "💡 Cloud Glow Table Lamp\n\n" +
+            "A soft glowing table lamp for a cozy room atmosphere.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.6 (14 reviews)";
+    }
+
+    else if (name === "Aura Charm Bracelet") {
+        product =
+            "💎 Aura Charm Bracelet\n\n" +
+            "A simple and elegant charm bracelet for everyday style.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.8 (29 reviews)";
+    }
+
+    else if (name === "Cozy Self-Care Basket") {
+        product =
+            "🧺 Cozy Self-Care Basket\n\n" +
+            "A relaxing self-care gift basket for a cozy day.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.7 (22 reviews)";
+    }
+
+    else if (name === "Classic Leather Wallet") {
+        product =
+            "👛 Classic Leather Wallet\n\n" +
+            "A classic and elegant leather wallet for everyday use.\n\n" +
+            "Price: ৳" + price +
+            "\nRating: ⭐⭐⭐⭐⭐ 4.6 (17 reviews)";
+    }
+
+    alert(product);
+}
+
+
+    </script>
+
+
+</body>
+
+</html>

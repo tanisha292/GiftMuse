@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gift Results - GiftMuse</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffafa;
+            color: #222;
+        }
+
+        .header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 18px 40px;
+
+            background: white;
+
+            border-bottom: 1px solid #ddd;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .header h1 {
+
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+        }
+
+
+        .nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+        }
+
+
+        .nav a {
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 15px;
+        }
+
+
+        .nav a:hover {
+
+            color: #a45c67;
+        }
+
+        .cart-button {
+
+            background: #222;
+
+            color: white;
+
+            border: none;
+
+            padding: 11px 16px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+
+        .cart-button:hover {
+
+            background: #a45c67;
+        }
+        .result {
+
+            text-align: center;
+
+            padding: 55px 30px;
+        }
+
+
+        .result h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .result > p {
+
+            color: #666;
+
+            margin-bottom: 40px;
+        }
+
+        .products {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 18px;
+
+            border: 1px solid #eee;
+
+            border-radius: 10px;
+
+            text-align: left;
+
+            transition: 0.3s;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+        }
+
+        .image {
+
+            height: 230px;
+
+            background: #f5f2ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 80px;
+
+            margin-bottom: 18px;
+
+            border-radius: 8px;
+        }
+
+
+        .card h3 {
+
+            margin: 8px 0;
+
+            font-size: 21px;
+        }
+
+
+        .card p {
+
+            color: #666;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        .price {
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            margin: 15px 0;
+        }
+
+        .add-cart {
+
+            width: 100%;
+
+            padding: 12px;
+
+            background: #222;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+
+        .add-cart:hover {
+
+            background: #a45c67;
+        }
+
+        .cart-box {
+
+            display: none;
+
+            position: fixed;
+
+            top: 80px;
+
+            right: 30px;
+
+            width: 350px;
+
+            max-width: 90%;
+
+            background: white;
+
+            border-radius: 10px;
+
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+
+            padding: 20px;
+
+            z-index: 1000;
+        }
+
+
+        .cart-box h3 {
+
+            margin-top: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+        }
+
+
+        .cart-item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #eee;
+
+            padding: 12px 0;
+
+            font-size: 14px;
+        }
+
+
+        .remove-btn {
+
+            background: #eee;
+
+            border: none;
+
+            padding: 5px 8px;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+        }
+
+
+        .remove-btn:hover {
+
+            background: #ddd;
+        }
+
+
+        .cart-total {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-top: 18px;
+        }
+
+
+        .checkout-btn {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-top: 15px;
+
+            background: #222;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+
+        .checkout-btn:hover {
+
+            background: #a45c67;
+        }
+
+
+        .close-btn {
+
+            width: 100%;
+
+            padding: 9px;
+
+            margin-top: 8px;
+
+            background: #eee;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .back-btn {
+
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 12px 25px;
+
+            background: #222;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+        }
+
+        @media (max-width: 700px) {
+
+            .products {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .header {
+
+                padding: 15px 20px;
+            }
+
+
+            .nav {
+
+                gap: 8px;
+            }
+
+
+            .nav a {
+
+                display: none;
+            }
+
+
+            .result h2 {
+
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+<header class="header">
+
+
+    <h1>
+        GiftMuse 
+    </h1>
+
+
+    <div class="nav">
+
+
+        <a href="index.html">
+            Home
+        </a>
+
+
+        <a href="find-gift.html">
+            Find a Gift
+        </a>
+
+
+        <a href="categories.html">
+            Categories
+        </a>
+
+
+        <a href="favorites.html">
+            Favorites ♡
+        </a>
+
+
+        <button
+            class="cart-button"
+            onclick="openCart()">
+
+             Add to Cart
+            (<span id="cartCount">0</span>)
+
+        </button>
+
+
+        <a href="login.html">
+            Login
+        </a>
+
+
+    </div>
+
+</header>
+
+<section class="result">
+
+
+    <h2>
+        Gifts We Found For You 💝
+    </h2>
+
+
+    <p>
+        Here are some beautiful gifts
+        you might love.
+    </p>
+
+
+
+    <div class="products">
+
+        <div class="card">
+
+
+            <div class="image">
+                🎁
+            </div>
+
+
+            <h3>
+                Elegant Gift Box
+            </h3>
+
+
+            <p>
+                A beautiful gift box
+                for someone special.
+            </p>
+
+
+            <div class="price">
+                ৳1,500
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Elegant Gift Box', 1500)">
+
+                Add to Cart 
+
+            </button>
+
+
+        </div>
+
+        <div class="card">
+
+
+            <div class="image">
+                💐
+            </div>
+
+
+            <h3>
+                Love Flower Box
+            </h3>
+
+
+            <p>
+                A romantic flower gift
+                for special moments.
+            </p>
+
+
+            <div class="price">
+                ৳1,800
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Love Flower Box', 1800)">
+
+                Add to Cart 
+
+            </button>
+
+
+        </div>
+
+        <div class="card">
+
+
+            <div class="image">
+                🎀
+            </div>
+
+
+            <h3>
+                Special Gift Box
+            </h3>
+
+
+            <p>
+                A lovely gift for
+                birthdays and celebrations.
+            </p>
+
+
+            <div class="price">
+                ৳1,200
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Special Gift Box', 1200)">
+
+                Add to Cart 
+
+            </button>
+            <button class="checkout-btn" onclick="goCheckout()">
+                Checkout
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <a
+        href="find-gift.html"
+        class="back-btn">
+
+        ← Find Another Gift
+
+    </a>
+
+</section>
+
+<div
+    id="cartBox"
+    class="cart-box">
+
+
+    <h3>
+         Your Cart
+    </h3>
+
+
+    <div id="cartItems">
+
+    </div>
+
+
+    <div class="cart-total">
+
+        Total:
+        ৳<span id="cartTotal">0</span>
+
+    </div>
+
+
+    <button
+        class="checkout-btn"
+        onclick="checkout()">
+
+        Checkout
+
+    </button>
+
+
+    <button
+        class="close-btn"
+        onclick="closeCart()">
+
+        Close
+
+    </button>
+
+
+</div>
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCart();
+
+    alert(name + " added to cart! 🛒");
+}
+
+
+function updateCart() {
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    let cartItems = document.getElementById("cartItems");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(function(item, index) {
+
+        total += Number(item.price);
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <div>
+                    <strong>${item.name}</strong>
+                    <br>
+                    ৳${item.price}
+                </div>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeItem(${index})">
+                    Remove
+                </button>
+
+            </div>
+        `;
+    });
+
+    document.getElementById("cartTotal").innerText = total;
+}
+
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    updateCart();
+}
+
+
+function openCart() {
+
+    document.getElementById("cartBox").style.display = "block";
+
+    updateCart();
+}
+
+
+function closeCart() {
+
+    document.getElementById("cartBox").style.display = "none";
+}
+
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty! 🛒");
+
+        return;
+    }
+
+    window.location.href = "checkout.html";
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    updateCart();
+
+});
+function checkout() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty! 🛒");
+        return;
+    }
+
+    window.location.href = "checkout.html";
+}
+
+</script>
+</body>
+</htmL>
